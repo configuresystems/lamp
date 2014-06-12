@@ -1,7 +1,6 @@
 ---
 
-
-- name: Install mysql
+- name: install mysql
   apt: name={{ item }} state=latest
   with_items:
     - mysql-server
@@ -9,3 +8,7 @@
     - php5-mysql
     - libapache2-mod-auth-mysql
   notify: start mysql
+
+- name: copy my.cnf
+  template: src=my.cnf.j2 dest=/etc/mysql/my.cnf
+  notify: restart mysql

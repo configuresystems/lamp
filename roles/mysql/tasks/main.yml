@@ -1,5 +1,9 @@
 ---
 
+- include_vars: "{{ ansible_os_family }}.yml"
+
+- debug: vars=query_cache_size
+
 - include: install.yml
 
 - include: mysql_secure_installation.yml
