@@ -149,9 +149,15 @@ server-id                       = 1
 ## In addition, you cannot backup the contents of these tables properly
 ## (mysqldump skips these tables by default since they cannot be locked)
 #log-output                     = FILE
+<<<<<<< HEAD
 #slow-query-log                 = 1
 #slow-query-log-file            = /var/lib/mysql/slow-log
 #long-query-time                = 2
+=======
+slow-query-log                 = 1
+slow-query-log-file            = /var/lib/mysql/slow-log
+long-query-time                = 2
+>>>>>>> 23c9a6895a2d9818848d2b2d34529641987118a3
 #log-queries-not-using-indexes  = 0
 
 [mysqld-safe]
