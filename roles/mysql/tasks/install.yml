@@ -9,6 +9,12 @@
     - libapache2-mod-auth-mysql
   notify: start mysql
 
+- name: Remove existing InnoDB log files
+  file: path=/var/lib/mysql/{{ item }} state=absent
+  with_items:
+  - ib_logfile0
+  - ib_logfile1
+
 - name: copy my.cnf
   template: src=my.cnf.j2 dest=/etc/mysql/my.cnf
   notify: restart mysql
